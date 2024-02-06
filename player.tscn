@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cswb4m2pt7oid"]
+
+[ext_resource type="PackedScene" uid="uid://v1mnq8mnj11x" path="res://tank.tscn" id="1_massn"]
+[ext_resource type="Texture2D" uid="uid://bvgicjo17mavx" path="res://onlyObjects_retina_rotated.png" id="2_45ben"]
+[ext_resource type="Script" path="res://player.gd" id="2_ej712"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kodah"]
+size = Vector2(80, 76)
+
+[node name="Player" instance=ExtResource("1_massn")]
+script = ExtResource("2_ej712")
+metadata/_edit_group_ = true
+
+[node name="Body" parent="." index="0"]
+texture_filter = 1
+texture = ExtResource("2_45ben")
+region_enabled = true
+region_rect = Rect2(308, 262, 80, 84)
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_kodah")
+
+[node name="Turret" parent="." index="2"]
+texture_filter = 1
+texture = ExtResource("2_45ben")
+offset = Vector2(20, 0)
+region_enabled = true
+region_rect = Rect2(684, 14, 60, 24)
+
+[node name="Muzzle" parent="Turret" index="0"]
+position = Vector2(55, 0)
